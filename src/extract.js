@@ -21,8 +21,8 @@ const extract = () => {
       const sessionsList = Promise.all([peopleIdTable, coursesIdTable])
         .then(([people, courses]) =>
           sessionsPromise.then(R.map(({userId, courseId}) => ({
-            userId: people[userId],
-            courseId: courses[courseId]
+            user: people[userId],
+            course: courses[courseId]
           }))));
 
       return Promise.all([peopleObj, coursesObj, sessionsList])
